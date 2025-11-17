@@ -6,11 +6,10 @@ namespace Tyuiu.HaevGS.Sprint5.Task2.V13.Lib
     {
         public string SaveToFileTextData(int[,] matrix)
         {
-            string path = Path.Combine(@"D:\Studio code\Repos2\Tyuiu.HaevGS.Sprint5", "OutPutFileTest2.csv");
+            string path = Path.Combine(Path.GetTempPath(), "OutPutFileTask2.cvs");
             FileInfo fileinfo = new FileInfo(path);
-            bool filexists = fileinfo.Exists;
 
-            if (filexists)
+            if (fileinfo.Exists)
             {
                 File.Delete(path);
             }
