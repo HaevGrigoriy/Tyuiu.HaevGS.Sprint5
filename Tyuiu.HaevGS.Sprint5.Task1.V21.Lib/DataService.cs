@@ -19,7 +19,8 @@ namespace Tyuiu.HaevGS.Sprint5.Task1.V21.Lib
             string stry;
             for (int x = startValue; x <= stopValue; x++)
             {
-                y = (2 * x - 3 / (Math.Cos(x) - 2 * x)) + 5 * x - Math.Sin(x);
+                y = (2 * x - 3) / (Math.Cos(x) - 2 * x) + 5 * x - Math.Sin(x);
+                y = Math.Round(y, 2);
                 stry = Convert.ToString(y);
 
                 if (x != stopValue)
@@ -29,6 +30,11 @@ namespace Tyuiu.HaevGS.Sprint5.Task1.V21.Lib
                 else
                 {
                     File.AppendAllText(path, stry);
+                }
+
+                if (double.IsInfinity(y) || double.IsNaN(y))
+                {
+                    y = 0;
                 }
             }
             return path;
