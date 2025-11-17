@@ -8,8 +8,11 @@ namespace Tyuiu.HaevGS.Sprint5.Task4.V17.Lib
         {
 
             string strx = File.ReadAllText(path);
+            strx = strx.Replace(".", ",");
+
             double x = Convert.ToDouble(strx);
             double res = Math.Round(Math.Sin(2 / (3 * x)) + x * x, 3);
+
             return res;
 
         }
