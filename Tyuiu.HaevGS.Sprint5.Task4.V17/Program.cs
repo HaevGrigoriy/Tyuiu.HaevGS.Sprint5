@@ -3,7 +3,8 @@ using System.IO;
 
 DataService ds = new DataService();
 
-string path = $@"{Directory.GetCurrentDirectory()}\InPutDataFileTask4V17.txt";
+
+string path = Path.Combine(Path.GetTempPath(), "DataSprint5", "InPutDataFileTask4V17.txt");
 double res = ds.LoadFromDataFile(path);
 Console.WriteLine(res);
 Console.ReadKey();
