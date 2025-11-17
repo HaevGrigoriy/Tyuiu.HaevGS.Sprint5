@@ -9,11 +9,11 @@ namespace Tyuiu.HaevGS.Sprint5.Task0.V6.Test
         [TestMethod]
         public void TestMethod1()
         {
-            string path = @"D:\Studio code\Repos2\Tyuiu.HaevGS.Sprint5\OutPutFileTask0.txt";
+            string path = Path.GetTempFileName();
             FileInfo fileinfo = new FileInfo(path);
-            bool filexists = fileinfo.Exists;
+            bool fileExists = fileinfo.Exists;
             bool wait = true;
-            Assert.AreEqual(wait, filexists);
+            Assert.AreEqual(wait, fileExists);
         }
     }
 }
