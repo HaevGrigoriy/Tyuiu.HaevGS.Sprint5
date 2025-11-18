@@ -9,7 +9,7 @@ namespace Tyuiu.HaevGS.Sprint5.Task5.V23.Lib
             using (StreamReader reader = new StreamReader(path))
             {
                 string text = File.ReadAllText(path).Replace('.', ',');
-                string[] strings = text.Split(' ');
+                string[] strings = text.Split('  ');
 
                 double minNumber = double.MaxValue;
 
