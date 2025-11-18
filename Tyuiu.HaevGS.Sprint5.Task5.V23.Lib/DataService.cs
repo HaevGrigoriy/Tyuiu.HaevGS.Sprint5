@@ -6,24 +6,40 @@ namespace Tyuiu.HaevGS.Sprint5.Task5.V23.Lib
     {
         public double LoadFromDataFile(string path)
         {
+            double res = 0;
             using (StreamReader reader = new StreamReader(path))
             {
-                double res = 0;
+                string text = File.ReadAllText(path).Replace('.', ',');
+                string[] strings = text.Split(' ');
 
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                double minNumber = double.MaxValue;
+
+                foreach (string str in strings)
                 {
-                    double number = Convert.ToDouble(line);
-                    if (number % 1 != 0)
+                    if (double.TryParse(str.Trim(), out double number))
                     {
-                        for (int i = 1; i < number; i++)
+                        if (number % 1 == 0 && number % 4 == 0)
                         {
-                            res = number;
+                            minNumber = number;
                         }
                     }
                 }
-                return res;
-            }  
+                return minNumber;
+                //    string line;
+                //    while ((line = reader.ReadLine()) != null)
+                //    {
+                //        double number = Convert.ToDouble(line);
+                //        if (number % 1 != 0)
+                //        {
+                //            for (int i = 0; i <= number; i++)
+                //            {
+                //                res = number;
+                //            }
+                //        }
+                //    }
+                //}
+                //return res;
+            }
         }
     }
 }
