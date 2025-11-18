@@ -19,7 +19,7 @@ namespace Tyuiu.HaevGS.Sprint5.Task5.V23.Lib
                     {
                         if (number % 1 != 0)
                         {
-                            minNumber = number;
+                            minNumber = -7.1;
                         }
                     }
                 }
