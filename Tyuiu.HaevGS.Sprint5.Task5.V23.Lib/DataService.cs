@@ -17,7 +17,7 @@ namespace Tyuiu.HaevGS.Sprint5.Task5.V23.Lib
                 {
                     if (double.TryParse(str.Trim(), out double number))
                     {
-                        if (Math.Floor(number) != number)
+                        if ((number % 1) == 0)
                         {
                             minNumber = number;
                         }
