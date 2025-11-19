@@ -1,4 +1,6 @@
-﻿using tyuiu.cources.programming.interfaces.Sprint5;
+﻿using System.IO;
+
+using tyuiu.cources.programming.interfaces.Sprint5;
 
 namespace Tyuiu.HaevGS.Sprint5.Task7.V4.Lib
 {
@@ -6,7 +8,7 @@ namespace Tyuiu.HaevGS.Sprint5.Task7.V4.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string pathSaveFile = Path.GetTempPath();
+            string pathSaveFile = $@"{Directory.GetCurrentDirectory()}\OutPutDataFileTask7V4.txt";
 
 
             FileInfo fileInfo = new FileInfo(path);
