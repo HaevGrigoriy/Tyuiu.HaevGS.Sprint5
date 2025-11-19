@@ -1,5 +1,5 @@
 ﻿using System.IO;
-
+using System.Text.RegularExpressions;
 using tyuiu.cources.programming.interfaces.Sprint5;
 
 namespace Tyuiu.HaevGS.Sprint5.Task7.V4.Lib
@@ -8,27 +8,26 @@ namespace Tyuiu.HaevGS.Sprint5.Task7.V4.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string res = Path.Combine(Path.GetTempPath(), "OutPutDataFileTask7V4.txt");
-            //string res = File.ReadAllText(path);
-            char[] result = new char[res.Length];
+            string path2 = Path.Combine(new string[] { Path.GetTempPath(), "OutPutDataFileTask7V4.txt" });
 
-            for (int i = 0; i < res.Length; i++)
+            FileInfo f = new FileInfo(path2);
+            if (f.Exists)
             {
-                char c = res[i];
-                if ((c >= 'а' && c <= 'я') || (c >= 'А' && c <= 'Я'))
-                {
-                    result[i] = '#';
-                }
-                else
-                {
-                    result[i] = c;
-                }
+                File.Delete(path2);
             }
-            using (StreamWriter writer = new StreamWriter(res))
+
+            string result = "";
+            using (StreamReader reader = new StreamReader(path))
             {
-                writer.Write(result);
+                string inputText = reader.ReadToEnd();
+
+                // Заменяем все русские буквы на #
+                string outputText = Regex.Replace(inputText, @"[А-Яа-я]", "#");
+                return outputText;
             }
-            return path;
         }
+
     }
 }
+    
+
