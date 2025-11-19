@@ -8,37 +8,27 @@ namespace Tyuiu.HaevGS.Sprint5.Task7.V4.Lib
     {
         public string LoadDataAndSave(string path)
         {
-            string pathSaveFile = $@"{Directory.GetCurrentDirectory()}\OutPutDataFileTask7V4.txt";
+            string res = Path.Combine(Path.GetTempPath(), "OutPutDataFileTask7V4.txt");
+            //string res = File.ReadAllText(path);
+            char[] result = new char[res.Length];
 
-            FileInfo fileInfo = new FileInfo(path);
-            bool fileExists = fileInfo.Exists;
-
-            if (fileExists)
+            for (int i = 0; i < res.Length; i++)
             {
-                File.Delete(pathSaveFile);
-            }
-            string strLine = "";
-            using (StreamReader reader = new StreamReader(path))
-            {
-                string line;
-                while ((line = reader.ReadLine()) != null)
+                char c = res[i];
+                if ((c >= 'а' && c <= 'я') || (c >= 'А' && c <= 'Я'))
                 {
-                    for (int i = 0; i < line.Length; i++)
-                    {
-                        if ((line[i] >= 1040 && line[i] <= 1103) || line[i] == 1025 || line[i] == 1105)
-                        {
-                            strLine = strLine + "#";
-                        }
-                        else
-                        {
-                            strLine = strLine + line[i];
-                        }
-                    }
-                    File.AppendAllText(pathSaveFile, strLine + Environment.NewLine);
-                    strLine = "";
+                    result[i] = '#';
+                }
+                else
+                {
+                    result[i] = c;
                 }
             }
-            return pathSaveFile;
+            using (StreamWriter writer = new StreamWriter(res))
+            {
+                writer.Write(result);
+            }
+            return path;
         }
     }
 }
