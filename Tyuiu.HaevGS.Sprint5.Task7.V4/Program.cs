@@ -5,7 +5,7 @@ DataService ds = new DataService();
 
 Console.WriteLine("***************************************************************************");
 
-string path = @"C:\DataSprint5\InPutDataFileTask7V4.txt";
+string path = Path.Combine(Path.GetTempPath(), "DataSprint5", "InPutDataFileTask6V6.txt");
 string pathSaveFile = $@"{Directory.GetCurrentDirectory()}\OutPutDataFileTask7V4.txt";
 
 Console.WriteLine("Данные находятся в файле: " + path);
