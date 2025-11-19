@@ -1,18 +1,18 @@
 ﻿using Tyuiu.HaevGS.Sprint5.Task7.V4.Lib;
 using System.IO;
 
-DataService ds = new DataService();
-
-
-string path = @"C:\DataSprint5\InPutDataFileTask7V4.txt";
-string pathSaveFile = $@"{Directory.GetCurrentDirectory()}\OutPutDataFileTask7V4.txt";
-
-Console.WriteLine("Данные находятся в файле: " + path);
+DataService DataService = new DataService();
 
 Console.WriteLine("***************************************************************************");
 
-Console.WriteLine("Данные находятся в файле:");
-pathSaveFile = ds.LoadDataAndSave(path);
+string path = $@"C:\DataSprint5\InPutDataFileTask7V4.txt";
+string res = File.ReadAllText(path);
+Console.WriteLine(res); Console.WriteLine("Файл находится тут: " + path);
 
-Console.WriteLine(pathSaveFile);
+Console.WriteLine("****************************************************************");
+Console.WriteLine("*РЕЗУЛЬТАТ:                                                     ");
+Console.WriteLine("****************************************************************");
+
+string w = DataService.LoadDataAndSave(path);
+Console.WriteLine("Cоздан!");
 Console.ReadKey();
