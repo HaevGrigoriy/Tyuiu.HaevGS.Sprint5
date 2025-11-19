@@ -10,7 +10,6 @@ namespace Tyuiu.HaevGS.Sprint5.Task7.V4.Lib
         {
             string pathSaveFile = $@"{Directory.GetCurrentDirectory()}\OutPutDataFileTask7V4.txt";
 
-
             FileInfo fileInfo = new FileInfo(path);
             bool fileExists = fileInfo.Exists;
 
